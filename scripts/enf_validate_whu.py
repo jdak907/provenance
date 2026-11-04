@@ -1,4 +1,4 @@
-"""Validate ENF timestamping on the real ENF-WHU recordings (MIT licence, Wuhan, 50 Hz).
+"""Validate ENF timestamping on the real ENF-WHU recordings (MIT license, Wuhan, 50 Hz).
 
 Ground truth (per the dataset README): match each clean H1_ref/NNN_ref.wav inside its
 24 h H1_ref_one_day reference; that lag is the true position. We then match the noisy

@@ -14,4 +14,4 @@
 | `validation_runs/*.json` | Summary numbers behind the validation pages. |
 | `img/` | Screenshots used by the main README. |
 
-These pages were written during development. Some mention files that are not in this repository: screenshots in `gui_screenshots/`, logs and `.npz` files in `validation_runs/`, the `reference_validation/` folder (ADS-B extract under ODbL, frames from a copyrighted video) and datasets under `$PROVENANCE_DATA`. They were left out because of size, local paths or licences. See `../DATA_SOURCES.md` for how to fetch the data.
+These pages were written during development. Some mention files that are not in this repository: screenshots in `gui_screenshots/`, logs and `.npz` files in `validation_runs/`, the `reference_validation/` folder (ADS-B extract under ODbL, frames from a copyrighted video) and datasets under `$PROVENANCE_DATA`. They were left out because of size, local paths or licenses. See `../DATA_SOURCES.md` for how to fetch the data.

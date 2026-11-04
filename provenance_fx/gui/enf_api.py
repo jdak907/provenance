@@ -54,7 +54,7 @@ def _whu_dayref(i):
 
 SAMPLES = [
     dict(id="whu120", name="ENF-WHU #120 · Wuhan, China (50 Hz)",
-         note="Real 10-min recording, MIT licence. Matched inside its 24 h mains reference; truth known.",
+         note="Real 10-min recording, MIT license. Matched inside its 24 h mains reference; truth known.",
          path=f"{WHU}/H1/120.wav", ref="whu", whu=120),
     dict(id="whu003", name="ENF-WHU #003 · Wuhan (harder, noisy)",
          note="8-min recording with faint hum; 24 h mains reference.", path=f"{WHU}/H1/003.wav", ref="whu", whu=3),

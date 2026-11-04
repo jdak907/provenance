@@ -20,7 +20,7 @@ All notable changes. Dates are in 2026.
 - README: new "Origin and acknowledgements" section crediting colsto's two videos, and stating that Provenance is an independent reimplementation with no copied code.
 - README: full numbered References list in IEEE style (104 entries in seven groups), with DOIs or links checked against doi.org, Crossref, DataCite, arXiv, Zenodo and the FDSN; in-text [n] citations added to Methods sections 1 to 12.
 - New CITATION.cff.
-- DATA_SOURCES.md aligned with the references: seismic network DOIs, licences, and the correct authors of the US Zenodo record (De Din, Carta and Hartmann).
+- DATA_SOURCES.md aligned with the references: seismic network DOIs, licenses, and the correct authors of the US Zenodo record (De Din, Carta and Hartmann).
 
 ## [0.1.0] - 2026-11-03
 
@@ -49,7 +49,7 @@ First packaged release.
 ### Project
 - Renamed from *flyloc* to **Provenance** (distribution `provenance-forensics`, package `provenance_fx`, command `provenance`; the PyPI name `provenance` is taken).
 - Data paths made portable through `PROVENANCE_DATA`.
-- Packaging: README with methods and validation, DATA_SOURCES.md, CONTRIBUTING.md, MIT licence (placeholder), CI workflow, Makefile.
+- Packaging: README with methods and validation, DATA_SOURCES.md, CONTRIBUTING.md, MIT license (placeholder), CI workflow, Makefile.
 
 ## Unreleased
 - (nothing yet)

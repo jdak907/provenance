@@ -19,7 +19,7 @@ give a second-by-second record of grid frequency. This module:
 Data: EarthScope (formerly IRIS DMC) FDSN web services, networks PB, UW, NN, MB, UI, UO, TX, NX.
 Cite the network DOIs listed in NETWORK_DOIS. From 2026-12-15 EarthScope's dataselect requires a free
 account for archive downloads [VERIFY]; this code never signs in. Raspberry Shake (AM) is excluded
-on purpose: its licence forbids redistributing the data.
+on purpose: its license forbids redistributing the data.
 """
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ TRACK_CACHE = os.path.join(R.CACHE, "seismic_tracks")
 FDSN = {"default": "https://service.earthscope.org", "CI": "https://service.scedc.caltech.edu",
         "BK": "https://service.ncedc.org", "NC": "https://service.ncedc.org"}
 UA = {"User-Agent": "provenance-enf-seismic/0.1 (grid frequency research; contact via project README)"}
-EXCLUDED_NETWORKS = {"AM"}   # Raspberry Shake: licence forbids redistribution; real-time is paid
+EXCLUDED_NETWORKS = {"AM"}   # Raspberry Shake: license forbids redistribution; real-time is paid
 
 NETWORK_DOIS = {
     "PB": "Plate Boundary Observatory Borehole Seismic Network (EarthScope), no DOI listed [VERIFY]",
@@ -128,7 +128,7 @@ def fetch_fdsn(sid, t0, t1, timeout=180, retries=3, log=None):
     """Raw miniSEED bytes from the public FDSN dataselect service (HTTPS), or b'' if no data."""
     net, sta, loc, cha = sid.split(".")
     if net in EXCLUDED_NETWORKS:
-        raise ValueError(f"{net} is excluded (licence)")
+        raise ValueError(f"{net} is excluded (license)")
     base = FDSN.get(net, FDSN["default"])
     url = (f"{base}/fdsnws/dataselect/1/query?net={net}&sta={sta}&loc={loc or '--'}&cha={cha}"
            f"&start={_iso(t0)}&end={_iso(t1)}&nodata=404")

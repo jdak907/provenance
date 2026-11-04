@@ -6,7 +6,7 @@ compact NPZ caches in ~/.cache/provenance/enf/us, which is what the grid race lo
   US-WEST   zenodo_wecc_2024   De Din, Carta, Hartmann, Zenodo 10.5281/zenodo.17366693,
                                CC BY 4.0. 1 s, 2024-01-16..2024-11-18 UTC, site not published [VERIFY].
                                Rows flagged QI=2 (linearly filled gaps) are dropped, never used.
-            pigott_phx_2022    John Pigott (jp3141), Phoenix AZ, OSF osf.io/cq285 (60Hz.log.gz), no licence stated.
+            pigott_phx_2022    John Pigott (jp3141), Phoenix AZ, OSF osf.io/cq285 (60Hz.log.gz), no license stated.
                                5 s cycle counts against a GPS-disciplined clock, 2022-02-14..2023-02-23.
                                Timestamps are the Pi's local clock; offset to UTC inferred, see PIGOTT_TZ_H.
             nategriff_wecc     nate-griff/enf on GitHub: FNET public gauge images read back to numbers,

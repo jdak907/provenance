@@ -197,7 +197,7 @@ Without this gate, v2 said "GB" for 6 of 8 UK clips and was right every time. Bu
 
 ## 9. Free reference coverage (no login, no key)
 
-| Grid | Source | Period | Resolution | Licence |
+| Grid | Source | Period | Resolution | License |
 |---|---|---|---|---|
 | Great Britain | NESO frequency archive | 2014 → latest published month | 1 s | NESO Open Data Licence |
 | Great Britain | Elexon BMRS FREQ | recent days | 15 s | Elexon BMRS terms [VERIFY] |
@@ -236,11 +236,11 @@ Without this gate, v2 said "GB" for 6 of 8 UK clips and was right every time. Bu
 
 ## 11. [VERIFY]
 
-- **US sources (section 13):** Zenodo recorder site and licence; Pigott clock offset (inferred UTC-7 from the data, not checked against a concurrent log); nate-griff scale accuracy and the FNET display terms.
+- **US sources (section 13):** Zenodo recorder site and license; Pigott clock offset (inferred UTC-7 from the data, not checked against a concurrent log); nate-griff scale accuracy and the FNET display terms.
 
 - **Fingrid time zone:** the archives are read as Finnish local time (EET/EEST, DST-aware). The first sample of 2026-09 is 2026-08-31 21:00 UTC, which is consistent with that. Not yet cross-checked against a concurrent Nordic recording; the OSF SE01 week (2019) predates the archive.
 - **OSF timestamps** are assumed to be UTC.
-- **Licences:** confirm the Energy-Charts and Fingrid CC BY 4.0 terms, and the Elexon terms, before publishing results.
+- **Licenses:** confirm the Energy-Charts and Fingrid CC BY 4.0 terms, and the Elexon terms, before publishing results.
 - **YouTube archive times:** the +1 h offset between release_timestamp and the ENF fit (section 7).
 - **Energy-Charts:** a single Freiburg meter stands in for all of Continental Europe. This is fine for the synchronous grid, but a local event could differ for a few seconds.
 
@@ -509,5 +509,5 @@ Both picked the right mains recording. The offset within the file is less sure: 
 - More of the CC BY 4.0 ENF Moving Video Database (7 videos not yet downloaded, including the moving MOV3 set).
 - The IEEE DataPort rolling-shutter sets by Choi and others (DOI 10.21227/ch9h-s046 and 10.21227/ykgm-4q17): need an IEEE account, not used.
 - Zenodo 10.5281/zenodo.3407735 (ENF Moving Video Database I): files restricted, not used.
-- Han and others (2022) point to sample videos from their GitHub page; licence not checked [VERIFY].
+- Han and others (2022) point to sample videos from their GitHub page; license not checked [VERIFY].
 - Your own clips filmed next to a home logger (`home_logger/`), which gives ground truth for your own grid.

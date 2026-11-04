@@ -15,7 +15,7 @@ It would not give a distance or radius from a power station. Every generator on 
 ## 2. How it combines with the Doppler results
 
 - **Time first, then place.** A confident ENF timestamp turns the Doppler search's unknown multi-hour window into a window of a few minutes. That makes the ADS-B search much faster and removes most false flight pairs.
-- **Grid as a fence.** The grid answer limits the map search box to that interconnection's footprint. A boundary polygon would be needed; a candidate source is the US federal HIFLD or EIA interconnection map [VERIFY licence].
+- **Grid as a fence.** The grid answer limits the map search box to that interconnection's footprint. A boundary polygon would be needed; a candidate source is the US federal HIFLD or EIA interconnection map [VERIFY license].
 - **Cross-check.** The Doppler winner's flyover times must agree with the ENF time, and its location must lie inside the ENF grid. If they disagree, the report flags it in red rather than silently picking one.
 - **One combined privacy verdict.** For example: "This file reveals: grid (high confidence), time (only if a reference exists), position (via planes, medium)."
 - **Order of operations.** ENF must read the raw audio. Provenance's current steady-tone removal (the 60-second running median) and the clean-up step's hum removal delete exactly the hum ENF needs. The ENF tab will always use the untouched track and say so on screen.
@@ -51,8 +51,8 @@ It uses the same dark theme, the same loaded file and the same job runner, and i
 
 ### 3.3 Data sources to use
 
-- **Build and prove the matcher:** NESO GB 1-second data. It is free, has 12 years of history, and its licence allows reuse.
-- **Prove extraction on real noisy audio:** ENF-WHU, 130 recordings with ground-truth references, MIT licence.
+- **Build and prove the matcher:** NESO GB 1-second data. It is free, has 12 years of history, and its license allows reuse.
+- **Prove extraction on real noisy audio:** ENF-WHU, 130 recordings with ground-truth references, MIT license.
 - **Prove grid ID, including US West, East and Texas:** SP Cup 2016 (IEEE DataPort, CC-BY), whose ground-truth labels are published.
 - **Prove video:** the Choi et al. rolling-shutter dataset on IEEE DataPort.
 - **US Western timestamping, for your own recordings:** start a local reference recorder now. A commercial AC-to-AC wall adapter feeds a resistor divider into a USB sound card, logged with NTP or GPS time. That's about $30–60 of parts [estimate]. No public free history exists, so recordings made before logging starts can be grid-identified and edit-checked but not timestamped. Request FNET/GridEye access in parallel if history matters.
@@ -80,7 +80,7 @@ This is a rough planning estimate in focused engineering days, not a promise.
 - **Video variability.** LED drivers, exposure settings, motion, unknown read-out time and phone stabilisation all interfere. Expect video to work mainly indoors under incandescent, halogen or flickery LED light with a static camera.
 - **Grid classifier ageing.** The SP Cup data is from about 2015. Grid behaviour may have changed with more solar and batteries [VERIFY]. Mitigation: retrain with your own logger and the OSF data.
 - **Anti-forensics.** ENF can be stripped or faked [55]. Mitigation: treat it as supporting evidence, and pair it with the tamper check.
-- **Licences.** The best video code has no licence and some extraction code is non-commercial. Mitigation: write our own code from the papers and use MIT or LGPL tools only as external cross-checks.
+- **Licenses.** The best video code has no license and some extraction code is non-commercial. Mitigation: write our own code from the papers and use MIT or LGPL tools only as external cross-checks.
 - **Ethics.** Same stance as the Doppler tool: built for checking your own recordings and for privacy awareness, not for dating or locating other people's media without a legitimate reason.
 
 ## 6. Test and validation plan, using real public data

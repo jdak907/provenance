@@ -146,7 +146,7 @@ def test_live_append_and_midnight_roll_merge_with_archive_file(tmp_path, monkeyp
     assert np.isfinite(g).sum() == 609 and g[599] == pytest.approx(60.01) and n[605] == 2
 
 
-def test_assign_grid_and_licence_exclusion():
+def test_assign_grid_and_license_exclusion():
     assert S.assign_grid(33.6, -116.6) == "US-WEST"       # Anza
     assert S.assign_grid(31.7, -103.5) == "US-TEXAS"      # Permian Basin
     assert S.assign_grid(40.0, -80.0) == "US-EAST"

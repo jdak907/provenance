@@ -35,9 +35,9 @@ Provenance is an independent reimplementation. The creator released no code or t
 - [Roadmap](#roadmap)
 - [Limitations](#limitations)
 - [Responsible use](#responsible-use)
-- [Data sources and licences](#data-sources-and-licences)
+- [Data sources and licenses](#data-sources-and-licenses)
 - [References](#references)
-- [Licence](#licence)
+- [License](#license)
 
 ---
 
@@ -911,13 +911,13 @@ Names: the display name is **Provenance** and the command is `provenance`. The P
 
 ## Responsible use
 
-Provenance is for **your own recordings** and for **privacy checks** before you publish. Use it only on recordings you made or are authorised to analyse. Do not use it to locate, track or identify other people. It reads local files only and does not upload, post or contact anyone; the only network traffic is fetching public reference data (map tiles, flight history, grid logs, terrain, seismic waveforms) when you ask for it. Respect each data source's licence and fair-use rules (see [DATA_SOURCES.md](DATA_SOURCES.md)).
+Provenance is for **your own recordings** and for **privacy checks** before you publish. Use it only on recordings you made or are authorised to analyse. Do not use it to locate, track or identify other people. It reads local files only and does not upload, post or contact anyone; the only network traffic is fetching public reference data (map tiles, flight history, grid logs, terrain, seismic waveforms) when you ask for it. Respect each data source's license and fair-use rules (see [DATA_SOURCES.md](DATA_SOURCES.md)).
 
 ---
 
-## Data sources and licences
+## Data sources and licenses
 
-No third-party dataset is bundled. Each one is fetched on demand or downloaded by you; [DATA_SOURCES.md](DATA_SOURCES.md) lists every source, its licence, the required attribution and how to fetch it. The only data files in this repository are small test fixtures and model coefficients produced by this project.
+No third-party dataset is bundled. Each one is fetched on demand or downloaded by you; [DATA_SOURCES.md](DATA_SOURCES.md) lists every source, its license, the required attribution and how to fetch it. The only data files in this repository are small test fixtures and model coefficients produced by this project.
 
 ---
 
@@ -1004,23 +1004,23 @@ Citation style: IEEE, numbered. Numbers in square brackets in the text, such as 
 
 ### Datasets and data services
 
-[65] National Energy System Operator (NESO), "System frequency data," NESO Data Portal, 1-second Great Britain frequency, 2014 onward. Licence: NESO Open Data Licence. Available: https://www.neso.energy/data-portal/system-frequency-data  
-[66] Elexon, "BMRS API: system frequency (FREQ) dataset," Balancing Mechanism Reporting Service, 15-second Great Britain frequency. Licence: BMRS data licence, https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/ . Available: https://data.elexon.co.uk/bmrs/api/v1/datasets/FREQ  
-[67] Fraunhofer Institute for Solar Energy Systems ISE, "Energy-Charts API: grid frequency," 1-second Continental Europe frequency, May 2022 onward. Licence CC BY 4.0 [VERIFY]. Available: https://api.energy-charts.info/  
-[68] Fingrid Oyj, "Frequency - historical data," dataset 339, Fingrid Open Data, 10 Hz Nordic frequency, 2024 onward as used here. Licence: Creative Commons Attribution (dataset page; version 4.0 [VERIFY]). Available: https://data.fingrid.fi/en/datasets/339  
-[69] E. De Din, D. Carta, and C. Hartmann, "Data for 'Cyber-Physical Systems on the Megawatt Scale: The impact of battery control on grid frequency stability.'", Zenodo, dataset, Oct. 2025, doi: [10.5281/zenodo.17366693](https://doi.org/10.5281/zenodo.17366693). Licence CC BY 4.0. Source of the US West 2024 and US East 2023 1-second records used here.  
+[65] National Energy System Operator (NESO), "System frequency data," NESO Data Portal, 1-second Great Britain frequency, 2014 onward. License: NESO Open Data Licence. Available: https://www.neso.energy/data-portal/system-frequency-data  
+[66] Elexon, "BMRS API: system frequency (FREQ) dataset," Balancing Mechanism Reporting Service, 15-second Great Britain frequency. License: BMRS data license, https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/ . Available: https://data.elexon.co.uk/bmrs/api/v1/datasets/FREQ  
+[67] Fraunhofer Institute for Solar Energy Systems ISE, "Energy-Charts API: grid frequency," 1-second Continental Europe frequency, May 2022 onward. License CC BY 4.0 [VERIFY]. Available: https://api.energy-charts.info/  
+[68] Fingrid Oyj, "Frequency - historical data," dataset 339, Fingrid Open Data, 10 Hz Nordic frequency, 2024 onward as used here. License: Creative Commons Attribution (dataset page; version 4.0 [VERIFY]). Available: https://data.fingrid.fi/en/datasets/339  
+[69] E. De Din, D. Carta, and C. Hartmann, "Data for 'Cyber-Physical Systems on the Megawatt Scale: The impact of battery control on grid frequency stability.'", Zenodo, dataset, Oct. 2025, doi: [10.5281/zenodo.17366693](https://doi.org/10.5281/zenodo.17366693). License CC BY 4.0. Source of the US West 2024 and US East 2023 1-second records used here.  
 [70] C. Hartmann et al., "Cyber-Physical Systems on the Megawatt Scale: The impact of battery control on grid frequency stability," arXiv preprint arXiv:2510.09862, 2025, doi: [10.48550/arXiv.2510.09862](https://doi.org/10.48550/arXiv.2510.09862). (The paper the record above supplements.)  
-[71] E. De Din, D. Carta, and C. Hartmann, "Data for 'One-minute frequency disturbances from unintended synchronization in cyber–physical power systems.'", Zenodo, dataset, Aug. 2026, doi: [10.5281/zenodo.21997337](https://doi.org/10.5281/zenodo.21997337). Licence CC BY 4.0. A later companion record from the same group; listed for completeness.  
+[71] E. De Din, D. Carta, and C. Hartmann, "Data for 'One-minute frequency disturbances from unintended synchronization in cyber–physical power systems.'", Zenodo, dataset, Aug. 2026, doi: [10.5281/zenodo.21997337](https://doi.org/10.5281/zenodo.21997337). License CC BY 4.0. A later companion record from the same group; listed for completeness.  
 [72] R. Jumar, H. Maaß, B. Schäfer, L. R. Gorjão, and V. Hagenmeyer, "Database of Power Grid Frequency Measurements," arXiv preprint arXiv:2006.01771, 2020, doi: [10.48550/arXiv.2006.01771](https://doi.org/10.48550/arXiv.2006.01771).  
-[73] R. Jumar, H. Maaß, B. Schäfer, L. R. Gorjão, and V. Hagenmeyer, "Power grid frequency data base," Open Science Framework, 2020. Available: https://osf.io/by5hu/ . Licence CC BY 4.0 [VERIFY].  
-[74] G. Hua et al., "ENF-WHU dataset," GitHub repository, MIT licence. Available: https://github.com/ghua-ac/ENF-WHU-Dataset (introduced in the 2021 IEEE TIFS paper above).  
-[75] S. Fernández-Menduiña and F. Pérez-González, "ENF Moving Video Database," Zenodo, dataset, Jan. 2020, doi: [10.5281/zenodo.3549379](https://doi.org/10.5281/zenodo.3549379). Licence CC BY 4.0.  
+[73] R. Jumar, H. Maaß, B. Schäfer, L. R. Gorjão, and V. Hagenmeyer, "Power grid frequency data base," Open Science Framework, 2020. Available: https://osf.io/by5hu/ . License CC BY 4.0 [VERIFY].  
+[74] G. Hua et al., "ENF-WHU dataset," GitHub repository, MIT license. Available: https://github.com/ghua-ac/ENF-WHU-Dataset (introduced in the 2021 IEEE TIFS paper above).  
+[75] S. Fernández-Menduiña and F. Pérez-González, "ENF Moving Video Database," Zenodo, dataset, Jan. 2020, doi: [10.5281/zenodo.3549379](https://doi.org/10.5281/zenodo.3549379). License CC BY 4.0.  
 [76] S. Fernández-Menduiña and F. Pérez-González, "ENF Moving Video Database I," Zenodo, dataset, Sep. 2019, doi: [10.5281/zenodo.3407735](https://doi.org/10.5281/zenodo.3407735). Files restricted; not used.  
 [77] A. Hajj-Ahmad, C.-W. Wong, and others, "SP Cup 2016 dataset," IEEE DataPort, 2016, doi: [10.21227/H2159S](https://doi.org/10.21227/H2159S). Login required; not used. Author list as given by DataCite, which is malformed [VERIFY].  
 [78] J. C. Choi, "rolling-shutter videos for ENF extraction," IEEE DataPort, dataset, 2022, doi: [10.21227/ch9h-s046](https://doi.org/10.21227/ch9h-s046). Login required; not used.  
 [79] J. C. Choi, "rolling-shutter videos for ENF extraction," IEEE DataPort, dataset, 2022, doi: [10.21227/ykgm-4q17](https://doi.org/10.21227/ykgm-4q17). Second version of the same set. Login required; not used.  
-[80] jp3141, "60Hz: measure and record 60 Hz power line frequency using GPS 1 pps as a reference," GitHub repository, MIT licence. Available: https://github.com/jp3141/60Hz  
-[81] nate-griff, "enf," GitHub repository, no licence stated. Available: https://github.com/nate-griff/enf (its US references are scraped from the public FNET/GridEye gauge; low trust).  
+[80] jp3141, "60Hz: measure and record 60 Hz power line frequency using GPS 1 pps as a reference," GitHub repository, MIT license. Available: https://github.com/jp3141/60Hz  
+[81] nate-griff, "enf," GitHub repository, no license stated. Available: https://github.com/nate-griff/enf (its US references are scraped from the public FNET/GridEye gauge; low trust).  
 [82] adsb.lol contributors, "globe_history" daily ADS-B archives, GitHub releases (for example https://github.com/adsblol/globe_history_2025), ODbL 1.0. Project site: https://adsb.lol  
 [83] Amazon Web Services and Mapzen, "Terrain Tiles," Registry of Open Data on AWS. Available: https://registry.opendata.aws/terrain-tiles/ (combines several public elevation sources, each with its own attribution).  
 
@@ -1053,6 +1053,6 @@ Citation style: IEEE, numbered. Numbers in square brackets in the text, such as 
 
 ---
 
-## Licence
+## License
 
-MIT; see [LICENSE](LICENSE). Data sources keep their own licences.
+MIT; see [LICENSE](LICENSE). Data sources keep their own licenses.

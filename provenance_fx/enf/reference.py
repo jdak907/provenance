@@ -5,7 +5,7 @@ All references become a regular grid: Reference(t0, step, f). t0 is unix seconds
 for dated data, or 0 with relative=True for undated data (for example ENF-WHU).
 
 Data credits: "Supported by National Energy SO Open Data" (NESO Open Data Licence).
-Elexon BMRS FREQ data: Elexon Insights Solution, BMRS open data licence [VERIFY exact wording].
+Elexon BMRS FREQ data: Elexon Insights Solution, BMRS open data license [VERIFY exact wording].
 """
 from __future__ import annotations
 
