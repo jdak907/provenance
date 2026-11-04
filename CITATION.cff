@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. Provenance reimplements an idea first shown by the YouTube creator colsto; please credit that work too (see the references)."
+title: "Provenance: recording forensics, where and when"
+type: software
+authors:
+  - given-names: Jeff
+    family-names: Dumps
+version: 0.2.0
+date-released: 2026-11-03
+license: MIT
+abstract: "A local privacy check for audio and video files: aircraft Doppler location (Acoustic Locate) and electric network frequency (ENF) dating and grid identification, including seismic references and video light flicker."
+keywords:
+  - audio forensics
+  - electric network frequency
+  - ENF
+  - Doppler
+  - ADS-B
+  - privacy
+references:
+  - type: video
+    title: "I discovered a sound that leaks your exact location (and it's everywhere)"
+    authors:
+      - name: colsto
+    date-published: 2026-11-02
+    url: "https://www.youtube.com/watch?v=UytYrhYLOKI"
+  - type: video
+    title: "Unknown location - raw audio"
+    authors:
+      - name: colsto
+    date-published: 2026-10-31
+    url: "https://youtu.be/4CxVxuMVkMc"

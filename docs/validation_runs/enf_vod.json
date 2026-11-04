@@ -1,0 +1,150 @@
+[
+ {
+  "id": "0_g4CrD3s6E",
+  "title": "Ongar1",
+  "url": "https://www.youtube.com/watch?v=0_g4CrD3s6E",
+  "truth": "2025-05-03 11:07:42 UTC",
+  "duration": 1200,
+  "hum": "clear 60 Hz hum family",
+  "detect": "absent",
+  "flat": false,
+  "harmonics": [
+   6
+  ],
+  "est": "2025-05-03 13:53:14 UTC",
+  "err_s": 9932.2,
+  "ncc": 0.6556,
+  "second": 0.6059,
+  "label": "no match",
+  "p_false": 1.0,
+  "rmse_mhz": 90.98,
+  "offset_mhz": 5.03,
+  "continuity": "not enough clean ENF to check",
+  "grid": "Nordic",
+  "grid_p": 0.99
+ },
+ {
+  "id": "20GoQ8sRzdk",
+  "title": "Bluebell Rly-Horsted Keynes Platforms North",
+  "url": "https://www.youtube.com/watch?v=20GoQ8sRzdk",
+  "truth": "2025-04-05 12:17:12 UTC",
+  "error": "the audio track is digital silence: no hum to analyse"
+ },
+ {
+  "id": "8PW4EVgqL60",
+  "title": "Crowcombe Heathfield, West Somerset Railway, Somerset UK ",
+  "url": "https://www.youtube.com/watch?v=8PW4EVgqL60",
+  "truth": "2025-04-08 10:18:41 UTC",
+  "error": "the audio track is digital silence: no hum to analyse"
+ },
+ {
+  "id": "IoToHZ0orgI",
+  "title": "Epping Signal Cabin, Epping Essex, UK - London Underground Central Line ",
+  "url": "https://www.youtube.com/watch?v=IoToHZ0orgI",
+  "truth": "2025-05-01 06:14:11 UTC",
+  "duration": 1200,
+  "hum": "clear 50 Hz hum family",
+  "detect": "weak",
+  "flat": false,
+  "harmonics": [
+   1
+  ],
+  "est": "2025-05-01 21:08:30 UTC",
+  "err_s": 53659.7,
+  "ncc": 0.2436,
+  "second": 0.2319,
+  "label": "no match",
+  "p_false": 1.0,
+  "rmse_mhz": 37.62,
+  "offset_mhz": -4.93,
+  "continuity": "not enough clean ENF to check",
+  "grid": "Nordic",
+  "grid_p": 0.94
+ },
+ {
+  "id": "LNmS5Gd6gZQ",
+  "title": "Epping Signal Cabin, Epping Essex, UK - London Underground Central Line ",
+  "url": "https://www.youtube.com/watch?v=LNmS5Gd6gZQ",
+  "truth": "2025-04-17 07:49:37 UTC",
+  "duration": 1200,
+  "hum": "clear 50 Hz hum family",
+  "detect": "weak",
+  "flat": false,
+  "harmonics": [
+   2
+  ],
+  "est": "2025-04-17 08:07:35 UTC",
+  "err_s": 1078.2,
+  "ncc": 0.6726,
+  "second": 0.6431,
+  "label": "no match",
+  "p_false": 1.0,
+  "rmse_mhz": 37.21,
+  "offset_mhz": -1.22,
+  "continuity": "possible gaps or edits",
+  "grid": "Nordic",
+  "grid_p": 0.92
+ },
+ {
+  "id": "UpRZ05j8ZLI",
+  "title": "Bluebell Rly-Horsted Keynes Platforms North",
+  "url": "https://www.youtube.com/watch?v=UpRZ05j8ZLI",
+  "truth": "2025-09-12 09:28:26 UTC",
+  "error": "the audio track is digital silence: no hum to analyse"
+ },
+ {
+  "id": "XGdlQbn1wOk",
+  "title": "Bluebell Rly-Horsted Keynes Platforms North",
+  "url": "https://www.youtube.com/watch?v=XGdlQbn1wOk",
+  "truth": "2025-08-28 07:26:16 UTC",
+  "error": "the audio track is digital silence: no hum to analyse"
+ },
+ {
+  "id": "dQze_bvWgaw",
+  "title": "Railcam UK Sampler Stream",
+  "url": "https://www.youtube.com/watch?v=dQze_bvWgaw",
+  "truth": "2025-06-25 18:58:41 UTC",
+  "duration": 1200,
+  "hum": "no clear mains hum line (best 60 Hz family, 3.1 dB)",
+  "detect": "weak",
+  "flat": false,
+  "harmonics": [
+   2
+  ],
+  "est": "2025-06-25 19:58:38 UTC",
+  "err_s": 3597.2,
+  "ncc": 0.8184,
+  "second": 0.7307,
+  "label": "weak",
+  "p_false": 0.9928282192589172,
+  "rmse_mhz": 29.64,
+  "offset_mhz": -3.33,
+  "continuity": "possible gaps or edits",
+  "grid": "Nordic",
+  "grid_p": 0.96
+ },
+ {
+  "id": "vSOuVeHI2KY",
+  "title": "Ribblehead Station Inn C1 - FREE STREAM",
+  "url": "https://www.youtube.com/watch?v=vSOuVeHI2KY",
+  "truth": "2025-05-06 09:41:36 UTC",
+  "duration": 1200,
+  "hum": "no clear mains hum line (best 60 Hz family, 6.5 dB)",
+  "detect": "present",
+  "flat": false,
+  "harmonics": [
+   2
+  ],
+  "est": "2025-05-06 10:41:29 UTC",
+  "err_s": 3593.0,
+  "ncc": 0.7221,
+  "second": 0.62,
+  "label": "weak",
+  "p_false": 1.0,
+  "rmse_mhz": 19.78,
+  "offset_mhz": 5.71,
+  "continuity": "not enough clean ENF to check",
+  "grid": "GB (Great Britain)",
+  "grid_p": 0.98
+ }
+]

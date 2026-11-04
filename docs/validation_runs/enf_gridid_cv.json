@@ -1,0 +1,177 @@
+{
+ "50": {
+  "n": 1410,
+  "accuracy_forced": 0.7354609929078014,
+  "abstain_rate": 0.5595744680851064,
+  "answered_accuracy": 0.9001610305958132,
+  "wrong_confident": 62,
+  "wrong_confident_rate": 0.04397163120567376,
+  "threshold": 0.6900000000000003,
+  "C": 3.0,
+  "temperature": 1.137,
+  "groups": 421,
+  "per_class": {
+   "CE": {
+    "n": 331,
+    "recall_forced": 0.7250755287009063
+   },
+   "CHINA": {
+    "n": 410,
+    "recall_forced": 0.7731707317073171
+   },
+   "GB": {
+    "n": 328,
+    "recall_forced": 0.75
+   },
+   "NORDIC": {
+    "n": 341,
+    "recall_forced": 0.6862170087976539
+   }
+  },
+  "confusion": {
+   "CE": {
+    "CE": 240,
+    "CHINA": 27,
+    "GB": 24,
+    "NORDIC": 40
+   },
+   "CHINA": {
+    "CE": 24,
+    "CHINA": 317,
+    "GB": 34,
+    "NORDIC": 35
+   },
+   "GB": {
+    "CE": 22,
+    "CHINA": 30,
+    "GB": 246,
+    "NORDIC": 30
+   },
+   "NORDIC": {
+    "CE": 47,
+    "CHINA": 31,
+    "GB": 29,
+    "NORDIC": 234
+   }
+  },
+  "by_duration": {
+   "180-300s": {
+    "n": 148,
+    "accuracy_forced": 0.5608108108108109,
+    "abstain_rate": 0.6013513513513513,
+    "answered_accuracy": 0.6779661016949152,
+    "wrong_confident": 19,
+    "wrong_confident_rate": 0.12837837837837837,
+    "threshold": 0.6900000000000003
+   },
+   "300-600s": {
+    "n": 468,
+    "accuracy_forced": 0.7136752136752137,
+    "abstain_rate": 0.5576923076923077,
+    "answered_accuracy": 0.8405797101449275,
+    "wrong_confident": 33,
+    "wrong_confident_rate": 0.07051282051282051,
+    "threshold": 0.6900000000000003
+   },
+   "600-900s": {
+    "n": 408,
+    "accuracy_forced": 0.7426470588235294,
+    "abstain_rate": 0.4681372549019608,
+    "answered_accuracy": 0.9032258064516129,
+    "wrong_confident": 21,
+    "wrong_confident_rate": 0.051470588235294115,
+    "threshold": 0.6900000000000003
+   },
+   "900-1201s": {
+    "n": 386,
+    "accuracy_forced": 0.8212435233160622,
+    "abstain_rate": 0.48963730569948183,
+    "answered_accuracy": 0.9593908629441624,
+    "wrong_confident": 8,
+    "wrong_confident_rate": 0.02072538860103627,
+    "threshold": 0.6900000000000003
+   }
+  }
+ },
+ "60": {
+  "n": 424,
+  "accuracy_forced": 0.7004716981132075,
+  "abstain_rate": 0.5212264150943396,
+  "answered_accuracy": 0.9014778325123153,
+  "wrong_confident": 20,
+  "wrong_confident_rate": 0.04716981132075472,
+  "threshold": 0.6500000000000002,
+  "C": 0.1,
+  "temperature": 1.083,
+  "groups": 32,
+  "per_class": {
+   "US-EAST": {
+    "n": 160,
+    "recall_forced": 0.80625
+   },
+   "US-TEXAS": {
+    "n": 132,
+    "recall_forced": 0.553030303030303
+   },
+   "US-WEST": {
+    "n": 132,
+    "recall_forced": 0.7196969696969697
+   }
+  },
+  "confusion": {
+   "US-EAST": {
+    "US-EAST": 129,
+    "US-TEXAS": 18,
+    "US-WEST": 13
+   },
+   "US-TEXAS": {
+    "US-EAST": 31,
+    "US-TEXAS": 73,
+    "US-WEST": 28
+   },
+   "US-WEST": {
+    "US-EAST": 7,
+    "US-TEXAS": 30,
+    "US-WEST": 95
+   }
+  },
+  "by_duration": {
+   "180-300s": {
+    "n": 56,
+    "accuracy_forced": 0.5178571428571429,
+    "abstain_rate": 0.4285714285714286,
+    "answered_accuracy": 0.6875,
+    "wrong_confident": 10,
+    "wrong_confident_rate": 0.17857142857142858,
+    "threshold": 0.6500000000000002
+   },
+   "300-600s": {
+    "n": 115,
+    "accuracy_forced": 0.7304347826086957,
+    "abstain_rate": 0.4521739130434783,
+    "answered_accuracy": 0.9206349206349206,
+    "wrong_confident": 5,
+    "wrong_confident_rate": 0.043478260869565216,
+    "threshold": 0.6500000000000002
+   },
+   "600-900s": {
+    "n": 127,
+    "accuracy_forced": 0.7086614173228346,
+    "abstain_rate": 0.4724409448818898,
+    "answered_accuracy": 0.8805970149253731,
+    "wrong_confident": 8,
+    "wrong_confident_rate": 0.06299212598425197,
+    "threshold": 0.6500000000000002
+   },
+   "900-1201s": {
+    "n": 126,
+    "accuracy_forced": 0.746031746031746,
+    "abstain_rate": 0.4206349206349206,
+    "answered_accuracy": 0.9041095890410958,
+    "wrong_confident": 7,
+    "wrong_confident_rate": 0.05555555555555555,
+    "threshold": 0.6500000000000002
+   }
+  }
+ }
+}

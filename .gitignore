@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Provenance run output (written next to the code by the GUI and demos)
+/gui_data/
+/demo_run/
+/reference_validation/
+/validation_runs/
+/gui_screenshots/
+/work/
+/enf_out/
+*.log
+
+# Large data: keep it outside the repo (see DATA_SOURCES.md)
+*.npz
+!tests/data/*.npz
+*.mseed
+!tests/data/*.mseed
+*.wav
+*.m4a
+*.mp3
+*.mp4
+*.7z
+*.tar
+*.tar.*
+*.csv.gz
+adsb*.csv
+
+# Runtime state
+gate_state.json
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

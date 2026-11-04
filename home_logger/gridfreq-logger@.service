@@ -1,0 +1,16 @@
+[Unit]
+Description=Home grid frequency logger (1 s, UTC) for Provenance
+After=chrony.service gpsd.service
+Wants=chrony.service
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/bin/python3 /opt/gridfreq/grid_logger.py --source pico --dir /home/%i/gridfreq
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/gridfreq/logger.log
+StandardError=append:/var/log/gridfreq/logger.log
+
+[Install]
+WantedBy=multi-user.target

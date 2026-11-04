@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "provenance-forensics"
+version = "0.2.0"
+description = "Provenance: recording forensics, where and when. Aircraft Doppler location and mains-hum (ENF) dating for your own recordings."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Jeff Dumps"}]
+requires-python = ">=3.10"
+keywords = ["audio forensics", "ENF", "electric network frequency", "doppler", "ads-b", "privacy"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+]
+dependencies = ["numpy>=1.24", "scipy>=1.10", "matplotlib>=3.6"]
+# scikit-learn is only needed to REBUILD the ENF grid profiles (scripts/enf_build_grid_profiles.py)
+
+[project.optional-dependencies]
+gui = ["fastapi>=0.110", "uvicorn>=0.27", "python-multipart>=0.0.9"]
+seismic = ["websockets>=12"]            # live SeedLink collector and the optional SDR cross-check
+dev = ["pytest>=7", "httpx>=0.27", "fastapi>=0.110", "uvicorn>=0.27", "python-multipart>=0.0.9", "websockets>=12"]
+geotiff = ["rasterio"]
+enf-train = ["scikit-learn>=1.3"]
+enf-nordic = ["py7zr>=0.20"]   # unpack Fingrid monthly 7z archives (Nordic grid race)
+
+[project.scripts]
+provenance = "provenance_fx.cli:main"
+
+[tool.setuptools]
+packages = ["provenance_fx", "provenance_fx.gui", "provenance_fx.enf"]
+
+[tool.setuptools.package-data]
+"provenance_fx.gui" = ["static/*", "static/vendor/*"]
+"provenance_fx.enf" = ["grid_profiles.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

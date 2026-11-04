@@ -1,0 +1,238 @@
+{
+ "sim": {
+  "50": {
+   "v1": {
+    "n": 1284,
+    "forced_accuracy": 0.576,
+    "answered": 739,
+    "abstain_rate": 0.424,
+    "answered_accuracy": 0.7,
+    "wrong_confident": 222
+   },
+   "v2": {
+    "n": 1410,
+    "forced_accuracy": 0.735,
+    "abstain_rate": 0.56,
+    "answered_accuracy": 0.9,
+    "wrong_confident": 62
+   }
+  },
+  "60": {
+   "v1": {
+    "n": 424,
+    "forced_accuracy": 0.733,
+    "answered": 300,
+    "abstain_rate": 0.292,
+    "answered_accuracy": 0.79,
+    "wrong_confident": 63
+   },
+   "v2": {
+    "n": 424,
+    "forced_accuracy": 0.7,
+    "abstain_rate": 0.521,
+    "answered_accuracy": 0.901,
+    "wrong_confident": 20
+   }
+  }
+ },
+ "whu": {
+  "v1": {
+   "n": 130,
+   "forced_accuracy": 0.469,
+   "answered": 85,
+   "abstain_rate": 0.346,
+   "answered_accuracy": 0.376,
+   "wrong_confident": 53
+  },
+  "v2": {
+   "n": 130,
+   "forced_accuracy": 0.531,
+   "answered": 47,
+   "abstain_rate": 0.638,
+   "answered_accuracy": 0.596,
+   "wrong_confident": 19
+  }
+ },
+ "uk": {
+  "v1": {
+   "n": 8,
+   "forced_accuracy": 0.25,
+   "answered": 8,
+   "abstain_rate": 0.0,
+   "answered_accuracy": 0.25,
+   "wrong_confident": 6
+  },
+  "v2": {
+   "n": 8,
+   "forced_accuracy": 0.5,
+   "answered": 0,
+   "abstain_rate": 1.0,
+   "answered_accuracy": null,
+   "wrong_confident": 0
+  },
+  "rows_v1": [
+   {
+    "id": "heathrow_live",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.972,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "york_north_live",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.901,
+    "confident": true,
+    "hum": "present"
+   },
+   {
+    "id": "crewe_live",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.706,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "sampler_live",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.969,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "york_south_live",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.917,
+    "confident": true,
+    "hum": "present"
+   },
+   {
+    "id": "ribblehead_vod",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.982,
+    "confident": true,
+    "hum": "present"
+   },
+   {
+    "id": "sampler_vod",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.957,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "epping_vod_a",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.922,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "epping_vod_b",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.944,
+    "confident": true,
+    "hum": "weak"
+   },
+   {
+    "id": "ongar_vod",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.992,
+    "confident": true,
+    "hum": "absent"
+   }
+  ],
+  "rows_v2": [
+   {
+    "id": "heathrow_live",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.606,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "york_north_live",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.695,
+    "confident": false,
+    "hum": "present"
+   },
+   {
+    "id": "crewe_live",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.571,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "sampler_live",
+    "truth": "GB",
+    "pred": "CHINA",
+    "p": 0.55,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "york_south_live",
+    "truth": "GB",
+    "pred": "CE",
+    "p": 0.495,
+    "confident": false,
+    "hum": "present"
+   },
+   {
+    "id": "ribblehead_vod",
+    "truth": "GB",
+    "pred": "GB",
+    "p": 0.736,
+    "confident": false,
+    "hum": "present"
+   },
+   {
+    "id": "sampler_vod",
+    "truth": "GB",
+    "pred": "CHINA",
+    "p": 0.562,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "epping_vod_a",
+    "truth": "GB",
+    "pred": "CHINA",
+    "p": 0.584,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "epping_vod_b",
+    "truth": "GB",
+    "pred": "CHINA",
+    "p": 0.374,
+    "confident": false,
+    "hum": "weak"
+   },
+   {
+    "id": "ongar_vod",
+    "truth": "GB",
+    "pred": "NORDIC",
+    "p": 0.519,
+    "confident": false,
+    "hum": "absent"
+   }
+  ]
+ }
+}

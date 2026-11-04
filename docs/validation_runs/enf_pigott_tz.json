@@ -1,0 +1,47 @@
+{
+ "assumed_tz_h": -7.0,
+ "inferred_local_to_utc_h": 7.0,
+ "implied_utc_offset_h": -7.0,
+ "daily_profile_corr": 0.901,
+ "top5": [
+  [
+   0.901,
+   7.0
+  ],
+  [
+   0.726,
+   6.83
+  ],
+  [
+   0.701,
+   6.0
+  ],
+  [
+   0.675,
+   8.0
+  ],
+  [
+   0.556,
+   7.83
+  ]
+ ],
+ "corr_at_assumed": 0.901,
+ "corr_at_utc": -0.353,
+ "hour_pattern_best_shift_s": 0,
+ "hour_pattern_corr": 0.865,
+ "hour_pattern_corr_at_0": 0.865,
+ "minute_pattern_corr_by_5s_shift": [
+  0.984,
+  0.799,
+  0.29,
+  -0.121,
+  -0.402,
+  -0.565,
+  -0.614,
+  -0.582,
+  -0.443,
+  -0.181,
+  0.19,
+  0.644
+ ]
+}

@@ -1,0 +1,826 @@
+{
+ "summary": {
+  "n": 30,
+  "answered": 18,
+  "correct": 18,
+  "shift_chosen": {
+   "0.0": 14,
+   "-1.0": 4,
+   "1.0": 0,
+   "7.0": 0
+  },
+  "timing_within_5s": 2
+ },
+ "rows": [
+  {
+   "idx": 240,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 632,
+   "snr_db": -21.6,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 2876.9,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.4613,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 241,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 892,
+   "snr_db": -18.4,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -828.9,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.5436,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 242,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 274,
+   "snr_db": 8.7,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9989,
+     "p_false": 3.24625880013096e-21,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 243,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 322,
+   "snr_db": 0.4,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.1,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9333,
+     "p_false": 0.00046636115089480993,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 244,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1077,
+   "snr_db": 5.5,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9999,
+     "p_false": 1.643106411635163e-161,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 245,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 231,
+   "snr_db": 8.8,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3599.7,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9903,
+     "p_false": 4.653078028441142e-10,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 246,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 320,
+   "snr_db": 1.1,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3599.8,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9968,
+     "p_false": 2.0663442013287414e-16,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 247,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1086,
+   "snr_db": -10.3,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9902,
+     "p_false": 1.453271953258607e-23,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 248,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 937,
+   "snr_db": -3.9,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9979,
+     "p_false": 4.437907959065381e-22,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 249,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1106,
+   "snr_db": -21.8,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -1436.3,
+   "tz_shift_h": 7.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.396,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 7.0
+    }
+   ]
+  },
+  {
+   "idx": 250,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 558,
+   "snr_db": -3.7,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.999,
+     "p_false": 0.011885977362361272,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 251,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 688,
+   "snr_db": -7.2,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.2,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9534,
+     "p_false": 0.6432546336896044,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 252,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1064,
+   "snr_db": -7.4,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.1,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9616,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 253,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 730,
+   "snr_db": 8.0,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 0.0,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9997,
+     "p_false": 6.059563503135864e-39,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 254,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 339,
+   "snr_db": 7.3,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3599.9,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9974,
+     "p_false": 2.6756382847021502e-14,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 255,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 982,
+   "snr_db": -14.8,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3599.8,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.6894,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 256,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1107,
+   "snr_db": 3.4,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3595.7,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9366,
+     "p_false": 3.128039322696831e-10,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 257,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 198,
+   "snr_db": -19.6,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 2.8,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.5792,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 258,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 498,
+   "snr_db": -9.7,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 0.1,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9524,
+     "p_false": 3.6940981063315156e-06,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 259,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 923,
+   "snr_db": -18.9,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.3,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.8771,
+     "p_false": 0.00014007479729705752,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 260,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1070,
+   "snr_db": -2.1,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 0.1,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9937,
+     "p_false": 3.968022697700993e-11,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 261,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 446,
+   "snr_db": -17.2,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3599.7,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9606,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 262,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1080,
+   "snr_db": 7.7,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -4924.3,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.0955,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 263,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 311,
+   "snr_db": -8.8,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3598.9,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.8929,
+     "p_false": 0.04355496751304938,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 264,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 535,
+   "snr_db": 6.8,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3600.0,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9993,
+     "p_false": 1.3665091392497963e-39,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 265,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1045,
+   "snr_db": -12.4,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 2.3,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9146,
+     "p_false": 0.31935952517716903,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  },
+  {
+   "idx": 266,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 395,
+   "snr_db": -7.8,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -3602.3,
+   "tz_shift_h": 0.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.7658,
+     "p_false": 0.006867554085350266,
+     "trust": 0.9,
+     "tz_shift_h": 0.0
+    }
+   ]
+  },
+  {
+   "idx": 267,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 264,
+   "snr_db": -19.1,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -4336.1,
+   "tz_shift_h": 7.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": -0.3839,
+     "p_false": 1.0,
+     "trust": 0.9,
+     "tz_shift_h": 7.0
+    }
+   ]
+  },
+  {
+   "idx": 268,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 1074,
+   "snr_db": -14.1,
+   "decision": "abstain",
+   "winner": null,
+   "margin": null,
+   "dz": null,
+   "timing_error_s": 856.5,
+   "tz_shift_h": 7.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.2379,
+     "p_false": 0.7400287616075557,
+     "trust": 0.9,
+     "tz_shift_h": 7.0
+    }
+   ]
+  },
+  {
+   "idx": 269,
+   "part": "C",
+   "truth": "US-WEST",
+   "window_s": 3600,
+   "cross": false,
+   "dur": 998,
+   "snr_db": 5.2,
+   "decision": "likely",
+   "winner": "US-WEST",
+   "margin": null,
+   "dz": null,
+   "timing_error_s": -0.0,
+   "tz_shift_h": -1.0,
+   "covered": [
+    "US-WEST"
+   ],
+   "ranking": [
+    {
+     "grid": "US-WEST",
+     "r": 0.9997,
+     "p_false": 1.967187561843607e-18,
+     "trust": 0.9,
+     "tz_shift_h": -1.0
+    }
+   ]
+  }
+ ]
+}

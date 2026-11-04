@@ -1,0 +1,11 @@
+{
+ "seconds_compared": 2347,
+ "first": "2026-11-03T21:10:01Z",
+ "last": "2026-11-03T22:20:00Z",
+ "r": 0.989,
+ "rmse_mhz": 3.13,
+ "p95_abs_mhz": 7.0,
+ "bias_mhz": -0.01,
+ "best_lag_s": 0,
+ "live_median_stations": 5.0
+}

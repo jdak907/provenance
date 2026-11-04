@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance // recording forensics: where &amp; when</title>
+<link rel="stylesheet" href="/static/vendor/leaflet.css">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="scan"></div>
+<header>
+  <div class="brand"><span class="glow">PROVENANCE</span><span class="dim"> // recording forensics: where &amp; when</span></div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="locate" title="Acoustic Locate: find where a recording was made from passing aircraft">Acoustic Locate</button>
+    <button class="tab" data-tab="audit" title="Acoustic Locate leak check: does your own recording give away where it was made?">Acoustic Locate · Leak Check</button>
+    <button class="tab" data-tab="enf" title="Mains hum (ENF): when and on which power grid was this recorded?">ENF · mains hum</button>
+    <button class="tab" data-tab="help" title="How to use Provenance, step by step">Help</button>
+  </nav>
+  <div class="sess" id="sessInfo">no file loaded</div>
+</header>
+
+<main id="tab-locate">
+  <aside class="steps">
+    <button class="step active" data-step="1"><b>01</b> Load recording</button>
+    <button class="step" data-step="2"><b>02</b> Clean up audio</button>
+    <button class="step" data-step="3"><b>03</b> Analysis settings</button>
+    <button class="step" data-step="4"><b>04</b> Run</button>
+    <button class="step" data-step="5"><b>05</b> Results</button>
+    <div class="help">
+      <p>Planes overhead leave faint falling tones (Doppler curves) in recordings. Provenance matches them against public flight history (ADS-B) to find where the audio was recorded.</p>
+      <p class="dim">Use on recordings you own or are allowed to analyse.</p>
+    </div>
+  </aside>
+
+  <section class="panel" id="step-1">
+    <h2>01 · Load a video or audio file</h2>
+    <div id="drop" class="drop">
+      <div class="big">Drop a file here</div>
+      <div class="dim">mp4, mov, mkv, wav, mp3, m4a, flac… video is converted to audio with ffmpeg</div>
+      <label class="btn">or browse<input type="file" id="fileIn" hidden></label>
+    </div>
+    <h3>…or try a sample</h3>
+    <div id="samples" class="cards"></div>
+    <div id="loadStatus" class="status"></div>
+  </section>
+
+  <section class="panel hidden" id="step-2">
+    <h2>02 · Clean up the audio <span class="dim small">(optional; the analysis already removes steady hums)</span></h2>
+    <div class="grid2">
+      <div class="controls">
+        <label title="Only analyse this part of the recording">Trim (seconds)
+          <span class="row"><input type="number" id="trimA" value="0" min="0" step="1"> to <input type="number" id="trimB" placeholder="end" step="1"></span></label>
+        <label title="Cut rumble below this frequency. Careful: propeller tones live around 60–250 Hz.">High-pass <output id="hpV">off</output>
+          <input type="range" id="hp" min="0" max="200" step="5" value="0"></label>
+        <label title="Cut hiss above this frequency">Low-pass <output id="lpV">off</output>
+          <input type="range" id="lp" min="0" max="1900" step="50" value="0"></label>
+        <label class="chk" title="Subtract hums, fans and electrical lines that sit at one pitch"><input type="checkbox" id="steady" checked> Remove steady tones (hum, HVAC)</label>
+        <label title="Extra broadband noise reduction. Too much can erase faint curves.">Noise reduction <output id="dnV">0</output>
+          <input type="range" id="dn" min="0" max="1" step="0.05" value="0"></label>
+        <label title="Volume change (does not affect detection much)">Gain <output id="gV">0 dB</output>
+          <input type="range" id="gain" min="-12" max="24" step="1" value="0"></label>
+        <div class="row"><button class="btn primary" id="applyClean">Apply clean-up</button>
+          <button class="btn" id="skipClean" title="Use the original audio">Skip</button></div>
+        <div class="status" id="cleanStatus"></div>
+        <audio id="player" controls preload="none"></audio>
+      </div>
+      <div>
+        <div class="speclabel">BEFORE <span class="dim">· original, 30–400 Hz</span></div>
+        <img id="specBefore" class="specimg" alt="">
+        <div class="speclabel">AFTER <span class="dim">· cleaned</span></div>
+        <img id="specAfter" class="specimg" alt="">
+        <div class="hint">Look for S-shaped falling lines: those are aircraft passing over.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="step-3">
+    <h2>03 · Analysis settings</h2>
+    <div class="grid2">
+      <div class="controls">
+        <fieldset><legend>When was it recorded?</legend>
+          <label class="chk"><input type="radio" name="tk" value="0" checked> Unknown: search a whole time window</label>
+          <label class="chk"><input type="radio" name="tk" value="1"> Known: I know when the recording started</label>
+          <label>Window start (UTC)<input type="datetime-local" id="wStart" step="1"></label>
+          <label>Window end (UTC)<input type="datetime-local" id="wEnd" step="1"></label>
+          <label id="clipRow" class="hidden" title="UTC time of the first second of the ORIGINAL file">Recording started at (UTC)<input type="datetime-local" id="clipStart" step="1"></label>
+        </fieldset>
+        <fieldset><legend>Flight history (ADS-B)</legend>
+          <label class="chk"><input type="radio" name="adsb" value="file" checked> Local file (CSV, or dump1090/readsb SBS log)</label>
+          <div class="row"><label class="btn small">choose…<input type="file" id="adsbFile" hidden></label><span id="adsbName" class="mono dim">none</span></div>
+          <label class="chk"><input type="radio" name="adsb" value="adsblol"> adsb.lol free archive (downloads ~4 GB per day, cached)</label>
+          <label>Archive date<input type="date" id="adsbDate"></label>
+        </fieldset>
+        <fieldset><legend>Details</legend>
+          <label title="Spacing of candidate points. 200 m is the video's choice.">Grid spacing <output id="gridV">200 m</output><input type="range" id="grid" min="100" max="500" step="50" value="200"></label>
+          <label title="Terrain heights make distances more accurate">Terrain
+            <select id="dem"><option value="auto">Fetch free terrain (AWS Terrain Tiles)</option><option value="flat">Flat ground</option><option value="file" id="demFileOpt">Sample terrain file</option></select></label>
+          <label title="Leave empty to auto-detect. Format: 100-220,1030-1150 (seconds in the original file)">Flyover windows (s)<input type="text" id="events" placeholder="auto-detect"></label>
+          <label>Band (Hz)<span class="row"><input type="number" id="fmin" value="30"> to <input type="number" id="fmax" value="250"></span></label>
+          <label title="Microphone height above ground">Mic height (m)<input type="number" id="height" value="2" step="0.5"></label>
+        </fieldset>
+      </div>
+      <div>
+        <div class="row maptools">
+          <span>Search region</span>
+          <button class="btn small" id="drawBox" title="Then click two opposite corners on the map">Draw box</button>
+          <button class="btn small" id="useView">Use current view</button>
+          <select id="presets"><option value="">Presets…</option></select>
+          <span id="bboxTxt" class="mono dim"></span>
+        </div>
+        <div id="setMap" class="map"></div>
+        <div class="hint">Smaller boxes and shorter time windows run faster and rank better. The video's tip: knowing even the city makes a huge difference.</div>
+        <button class="btn primary big" id="goRun">Run analysis →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="step-4">
+    <h2>04 · Running</h2>
+    <div class="progress"><div id="bar"></div></div>
+    <div class="row"><span id="runState" class="mono">idle</span><span id="runTime" class="mono dim"></span></div>
+    <pre id="log" class="log"></pre>
+    <div class="dim small">The page stays responsive; long ADS-B downloads and big boxes can take minutes.</div>
+  </section>
+
+  <section class="panel hidden" id="step-5">
+    <h2>05 · Results <span id="verdict" class="pill"></span></h2>
+    <div class="results">
+      <div class="col-main">
+        <div class="row specbar">
+          <span>Spectrogram</span>
+          <label class="chk"><input type="checkbox" id="ovRidge" checked> detected</label>
+          <label class="chk"><input type="checkbox" id="ovFit" checked> straight-line fit</label>
+          <label class="chk"><input type="checkbox" id="ovPred" checked> predicted (selected)</label>
+          <button class="btn small" id="zoomE1">event 1</button><button class="btn small" id="zoomE2">event 2</button>
+          <button class="btn small" id="zoomAll">all</button>
+          <span class="dim small">wheel = zoom time · shift+wheel = zoom pitch · drag = pan</span>
+        </div>
+        <div class="specwrap"><canvas id="specCanvas"></canvas><div id="specTip" class="tip"></div></div>
+        <div id="resMap" class="map tall"></div>
+      </div>
+      <div class="col-side">
+        <div class="best" id="bestBox"></div>
+        <h3>Ranked candidates</h3>
+        <div class="tablewrap"><table id="rankTbl"><thead><tr><th>#</th><th>lat, lon</th><th>score</th><th>conf.</th><th>flights</th></tr></thead><tbody></tbody></table></div>
+        <h3>Measured flyovers</h3>
+        <div id="evBox" class="mono small"></div>
+        <h3>Search funnel</h3>
+        <div id="funnel" class="mono small"></div>
+        <h3>Export</h3>
+        <div class="row wrap">
+          <a class="btn small" id="exMd">Markdown report</a><a class="btn small" id="exJson">JSON</a>
+          <a class="btn small" id="exPng">Map PNG</a><a class="btn small" id="exZip">All (zip)</a>
+          <button class="btn small" id="exSpec">Spectrogram PNG</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="tab-audit" class="hidden">
+  <section class="panel">
+    <h2>Is my recording leaking location?</h2>
+    <p>Provenance checks the low end of your recording for aircraft Doppler curves, the clue this tool uses. It also tests whether a typical high-pass filter really removes them.</p>
+    <div class="row">
+      <span id="auditFile" class="mono">Load a file in Locate → 01 first (or use a sample).</span>
+      <label title="Cutoff for the mitigation test">High-pass test (Hz)<input type="number" id="auditHp" value="300" style="width:6em"></label>
+      <label class="chk"><input type="checkbox" id="auditClean"> use cleaned audio</label>
+      <button class="btn primary" id="runAudit">Run check</button>
+    </div>
+    <div id="auditOut"></div>
+    <img id="auditSpec" class="specimg hidden" alt="">
+  </section>
+</main>
+
+<main id="tab-enf" class="hidden">
+  <aside class="steps">
+    <div class="help" style="margin-top:0;border-top:0">
+      <p><b class="glow">ENF</b> = electric network frequency. Mains hum (50 or 60 Hz and its harmonics) drifts with the power grid. That drift can date a recording and hint at its grid.</p>
+      <p>This tab always reads the <b>raw</b> audio. The Locate clean-up removes steady tones, which would erase the hum.</p>
+      <p>Video files: the audio hum <b>and</b> the light flicker in the picture are analysed. Mains lamps flicker at twice the mains frequency (100 or 120 Hz); a rolling-shutter camera turns that into faint bands. The two answers are compared side by side.</p>
+      <p class="dim">For your own recordings and privacy checks.</p>
+    </div>
+  </aside>
+  <section class="panel" id="enfPanel">
+    <h2>ENF · when and on which grid?</h2>
+    <div class="grid2">
+      <div class="controls">
+        <div id="enfDrop" class="drop" style="padding:22px">
+          <div class="big">Drop audio or video</div>
+          <div class="dim small">wav, mp3, m4a, flac, mp4, mov, mkv… raw audio, plus the picture's light flicker for video</div>
+          <label class="btn">browse<input type="file" id="enfFile" hidden></label>
+          <button class="btn" id="enfUseSess" title="Use the original (not cleaned) audio of the file loaded in Locate">use Locate file</button>
+        </div>
+        <div id="enfFileInfo" class="status mono"></div>
+        <fieldset><legend>Reference (what to match against)</legend>
+          <label class="chk"><input type="radio" name="enfRef" value="gb" checked> Built-in GB grid (NESO 1 s archive + Elexon 15 s recent)</label>
+          <label class="chk"><input type="radio" name="enfRef" value="grid"> Built-in grid log
+            <select id="enfGrid"><option value="US-WEST">US West (WECC)</option><option value="US-EAST">US East</option>
+            <option value="US-TEXAS">US Texas (ERCOT)</option><option value="QUEBEC">Quebec</option>
+            <option value="CE">Continental Europe</option><option value="NORDIC">Nordic</option><option value="GB">GB</option></select>
+            <span class="dim small">window up to ~13 months, e.g. all of 2024 for US West</span></label>
+          <label class="chk"><input type="radio" name="enfRef" value="file"> My reference file (CSV time,frequency · WAV of mains · NPZ)</label>
+          <label class="chk"><input type="radio" name="enfRef" value="none"> None (hum check, grid guess and privacy only)</label>
+          <div id="enfRefFileRow" class="row hidden"><label class="btn small">choose reference<input type="file" id="enfRefFile" hidden></label><span id="enfRefName" class="mono small dim">none</span></div>
+        </fieldset>
+        <fieldset><legend>When was it recorded? (roughly)</legend>
+          <div id="enfWin">
+            <label>Search window start (UTC)<input type="datetime-local" step="1" id="enfStart"></label>
+            <label>Search window end (UTC)<input type="datetime-local" step="1" id="enfEnd"></label>
+            <div class="dim small">Where the recording may START. Narrower is better: ±10 min to ±1 h works best. GB reference matching allows up to ~2 months; the grid race up to 3 days.</div>
+          </div>
+          <label class="chk"><input type="checkbox" id="enfRace" checked> Grid race: test every grid with free logs for that time (see coverage below)</label>
+          <label class="chk"><input type="checkbox" id="enfCross"> Also race grids of the other mains frequency (control check)</label>
+          <label class="chk"><input type="checkbox" id="enfSeisOnly"> US West: use the seismic log alone (leave out Zenodo 2024, to check the seismic reference)</label>
+          <label class="chk"><input type="checkbox" id="enfMeta" checked> If the window is blank, take it from the file's creation-time metadata (±1 h)</label>
+        </fieldset>
+        <label>Mains frequency <select id="enfNominal"><option value="">auto-detect</option><option value="50">50 Hz</option><option value="60">60 Hz</option></select></label>
+        <fieldset><legend>Video: light flicker in the picture</legend>
+          <label>Picture analysis <select id="enfVideo"><option value="auto" selected>auto (video files)</option><option value="on">on</option><option value="off">off (audio only)</option></select></label>
+          <label>Rolling-shutter read-out time (ms) <input type="number" id="enfReadout" min="1" max="60" step="0.01" placeholder="blank = search it" style="width:9em">
+            <select id="enfReadoutPick"><option value="">pick a typical value…</option><option value="10">10 ms (fast sensor)</option><option value="16">16 ms</option><option value="20">20 ms</option><option value="25">25 ms</option><option value="30">30 ms (slow sensor)</option></select></label>
+          <div class="dim small">The time the camera takes to read all rows, top to bottom. Leave blank and it is searched from the bands (4 ms up to one frame). Typical phone values are not published reliably [VERIFY per camera].</div>
+        </fieldset>
+        <button class="btn primary big" id="enfRun">Analyse hum</button>
+        <div class="status" id="enfStatus"></div>
+        <pre id="enfLog" class="log hidden"></pre>
+        <h3>Grid log coverage <span class="dim small">(when a race is possible)</span></h3>
+        <div id="enfCov" class="small"></div>
+        <h3>Samples with known answers</h3>
+        <div id="enfSamples" class="cards col"></div>
+      </div>
+      <div id="enfOut">
+        <div class="dim">Results appear here: hum check, ENF trace, best time match against the reference, grid guess and a privacy verdict.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="tab-help" class="hidden">
+  <aside class="steps">
+    <nav id="helpToc">
+      <a href="#" data-go="h-what">What it does</a>
+      <a href="#" data-go="h-start">Getting started</a>
+      <a href="#" data-go="h-locate">Acoustic Locate</a>
+      <a href="#" data-go="h-leak">Leak Check</a>
+      <a href="#" data-go="h-enf">ENF · mains hum</a>
+      <a href="#" data-go="h-video">Video light flicker</a>
+      <a href="#" data-go="h-race">The grid race</a>
+      <a href="#" data-go="h-refs">References and coverage</a>
+      <a href="#" data-go="h-conf">Confidence and abstain</a>
+      <a href="#" data-go="h-limits">Limits</a>
+      <a href="#" data-go="h-cli">Command line</a>
+      <a href="#" data-go="h-trouble">Troubleshooting</a>
+    </nav>
+    <div class="help"><p class="dim">For your own recordings and privacy checks only.</p></div>
+  </aside>
+  <section class="panel">
+  <div class="helpdoc">
+    <h2 id="h-what">Help · what Provenance does</h2>
+    <p>Provenance looks for two kinds of clues in an audio or video file. Both can reveal where and when it was recorded.</p>
+    <ul>
+      <li><b>Aircraft sound (Acoustic Locate).</b> A propeller plane passing overhead makes a tone that slides down in pitch. That slide is the Doppler effect. Its shape depends on the plane's speed and how close it came. Provenance measures the slide and compares it with public flight tracks (ADS-B) to rank the places where a listener would have heard exactly that.</li>
+      <li><b>Mains hum (ENF).</b> Recordings near power wiring often pick up a faint hum at 50 or 60 hertz. The grid's frequency drifts a little all the time, and the hum drifts with it. Matching that drift against a grid's frequency log can date the recording, and racing several grids can show which grid it came from.</li>
+    </ul>
+    <p>Everything runs on this computer. Your audio is never uploaded. Only public data, such as flight history, grid logs and map tiles, is downloaded.</p>
+
+    <h3 id="h-start">Getting started</h3>
+    <ol>
+      <li>Pick a tab at the top. <b>Acoustic Locate</b> finds a place from aircraft. <b>Leak Check</b> tells you whether your own recording gives its place away. <b>ENF · mains hum</b> works out when it was recorded, and on which grid.</li>
+      <li>Load a file by dropping it on the dashed box, or click <b>browse</b>. Video files work too: only the audio track is used, and ffmpeg is needed for anything that isn't a WAV file.</li>
+      <li>Not sure where to begin? Click one of the sample cards. Each sample has a known answer, so you can see what a good result looks like.</li>
+    </ol>
+
+    <h3 id="h-locate">Acoustic Locate, step by step</h3>
+    <ol>
+      <li><b>01 Load recording.</b> Drop a file or pick a sample. The spectrogram appears once it loads. That's a picture of pitch over time, with low pitches at the bottom.</li>
+      <li><b>02 Clean up audio (optional).</b> Trim to the useful part. Leave <b>Remove steady tones</b> on, because it subtracts fans and hum that would otherwise fool the scoring. Be careful with the high-pass filter: propeller tones sit around 60 to 250 hertz.</li>
+      <li><b>03 Analysis settings.</b> Draw or type the search box on the map, and set the time window when the recording could have been made. Mark each flyover, which is a falling curve in the spectrogram. Two flyovers are much better than one. If you know the exact clock time of the first sample, enter it: then even a one-minute clip can work. Microphone height and air temperature are small corrections.</li>
+      <li><b>04 Run.</b> Provenance downloads flight history for the box and the time, finds candidate flights, and scores every grid point. Big boxes and long windows can take minutes.</li>
+      <li><b>05 Results.</b> The top card shows the best spot and its confidence. The table ranks candidates by score. Click a row to see its predicted curve drawn over your spectrogram. A good match runs right along the bright line. Export a Markdown report, JSON, map PNG or zip.</li>
+    </ol>
+    <p>The confidence label in the table compares each spot with the next one. <b>High</b> means it leads the next candidate by more than 15 percent of its score. <b>Medium</b> means more than 5 percent. <b>Low</b> means it's close to a tie, so check the runner-up. With only one flyover, a point mirrored across the flight path hears almost the same curve. That's why near-tie alternatives are listed.</p>
+
+    <h3 id="h-leak">Leak Check, step by step</h3>
+    <ol>
+      <li>Load your file in Acoustic Locate step 01 first, or use a sample.</li>
+      <li>Choose a high-pass cutoff to test. The default is 300 hertz. Tick <b>use cleaned audio</b> to test the cleaned version instead.</li>
+      <li>Click <b>Run check</b>. It reports how many aircraft-like curves it found, what each one reveals, and whether the filter really removes them.</li>
+    </ol>
+    <p>A HIGH level means someone with flight history could probably place the recording. A filter that seems to work often doesn't: turning the volume back up after filtering can bring the curve back. Cutting the low end hard, or replacing it, is safer.</p>
+
+    <h3 id="h-enf">ENF · mains hum, step by step</h3>
+    <ol>
+      <li><b>Load a file.</b> Drop audio or video, or click <b>use Locate file</b>. This tab always reads the raw audio, never the cleaned one, because the clean-up removes steady tones like hum. For video, the picture is read too (see <b>Video light flicker</b> below).</li>
+      <li><b>Pick a reference</b>, which is what the hum is matched against:
+        <ul>
+          <li><b>Built-in GB grid</b> uses the NESO 1-second archive, plus the Elexon 15-second feed for recent days.</li>
+          <li><b>Built-in grid log</b> lets you choose a grid. US West covers a window of up to about 13 months, for example all of 2024.</li>
+          <li><b>My reference file</b> takes a CSV of time and frequency, a WAV recorded straight from the mains, or an NPZ file.</li>
+          <li><b>None</b> runs only the hum check, the grid guess and the privacy verdict.</li>
+        </ul></li>
+      <li><b>Set a time window</b> for when the recording could have started, in UTC. Narrower is better: plus or minus 10 minutes to 1 hour works best. GB matching allows up to about 2 months. The grid race allows up to 3 days. If you leave the window blank, the file's creation-time metadata is used, widened by an hour.</li>
+      <li><b>Grid race</b> is on by default. It tests every grid with a free log for that time. <b>Also race grids of the other mains frequency</b> adds the 50 hertz grids to a 60 hertz race, or the other way round. That's a control check. <b>US West: use the seismic log alone</b> leaves out the Zenodo 2024 log, so you can test the seismometer reference.</li>
+      <li><b>Mains frequency</b> is normally auto-detected. Force 50 or 60 only if you know better.</li>
+      <li>Click <b>Analyse hum</b>. The badges at the top give the short answer: whether there's hum, whether there's ENF, which grid, how good the time match is, and how much the recording leaks. Below them are the best start time, the grid race table and the plots.</li>
+    </ol>
+
+    <h3 id="h-video">Video: mains light flicker in the picture</h3>
+    <p>Lamps on the mains brighten and dim twice per cycle, so they flicker at 100 hertz on a 50 hertz grid and 120 hertz on a 60 hertz grid. That flicker carries the same grid wander as the hum. When you drop in a video, the tool reads the sound and the picture separately and shows both.</p>
+    <ul>
+      <li><b>Rolling shutter</b> (most phones and webcams): the camera reads the rows one after another, so each row is a moment in time and the flicker shows up as faint horizontal bands. The tool fits those bands in every frame. It needs the <b>read-out time</b>, the time to read all rows. Enter it if you know it, pick a typical value, or leave it blank and it is searched from 4 milliseconds up to one frame. The gap left over in each frame is reported as the idle time.</li>
+      <li><b>Global shutter</b>, or bands too faint: the whole frame brightness is used instead. The flicker is then far above the frame rate and shows up as a slow alias. At exactly 30 or 60 frames per second on a 60 hertz grid, or 25 or 50 on a 50 hertz grid, the alias sits at zero and cannot be tracked, so that path refuses.</li>
+      <li><b>Keyframe pumping.</b> Video codecs brighten slightly at every keyframe. At 29.97 frames per second with the common 250-frame keyframe spacing, that rhythm lands exactly on the 120 hertz alias. The tool checks the keyframe rhythm and refuses the whole-frame path when the two collide.</li>
+      <li><b>Static scene only.</b> Frames with camera motion or an exposure jump are dropped, and only bright, still columns are used. Stretches shorter than 4 seconds are skipped. Clips under 30 seconds are too short.</li>
+      <li><b>Abstain.</b> No lamp flicker, daylight, LED drivers with smooth output, or an anti-banding exposure (1/100 or 1/120 second) give no usable flicker. The tool then says so instead of guessing. Bands must stand out at least 6 decibels in the read-out search to count as seen.</li>
+      <li><b>Grid race and time match.</b> The picture trace gets its own grid race and time match, with the same decisive, likely and abstain rules as the hum. A video with no sound uses the picture alone.</li>
+      <li><b>Audio versus picture.</b> The two traces are compared in 1 or 2 minute pieces. <b>agree</b> means one recording. <b>agree with an offset</b> means a sync shift or re-laid sound. <b>partly disagree</b> points at a splice or a replaced section. <b>disagree</b> means the sound and picture may come from different times or places. These are hints, not proof.</li>
+      <li><b>Privacy.</b> Muting the sound does not remove this clue. Film in daylight or under battery lighting, or set the exposure to exactly 1/100 second on 50 hertz or 1/120 second on 60 hertz.</li>
+    </ul>
+    <p>All video validation so far is on simulated videos built from real grid logs. Real camera tests are still to come.</p>
+
+    <h3 id="h-race">How to read the grid race</h3>
+    <p>Only the grid the recorder was plugged into can line up with the hum. Other grids give only chance-level agreement. Each grid gets a score r between minus 1 and 1. The decision depends on the winner's score, its lead over the next grid, and the chance of a false match:</p>
+    <table class="racetbl">
+      <tr><th>Answer</th><th>Winner's r</th><th>Lead (Fisher-z margin)</th><th>False-match chance</th></tr>
+      <tr><td>decisive</td><td>0.80 or more</td><td>1.0 or more</td><td>under 0.01</td></tr>
+      <tr><td>likely</td><td>0.60 or more</td><td>0.5 or more</td><td>under 0.5</td></tr>
+      <tr><td>abstain</td><td colspan="3">anything else</td></tr>
+    </table>
+    <ul>
+      <li>If only one grid has a log for that time, the match must reach a false-match chance under 0.05, and the answer is never better than <b>likely</b>.</li>
+      <li>A winner from a low-trust source, such as the FNET gauge scrape, is capped at <b>likely</b> and needs a lead 1.5 times larger.</li>
+      <li>The race needs at least 3 minutes of audio. If the whole clip doesn't line up, for example after stream stalls or edits, it tries separate 5-minute pieces. It says <b>likely</b> only when at least two pieces pick the same grid at consistent times, and no piece picks another grid.</li>
+    </ul>
+
+    <h3 id="h-refs">References and coverage</h3>
+    <p>The <b>Grid log coverage</b> chart on the ENF tab shows which grids have free logs for which dates. A race is only possible inside those spans. Highlights:</p>
+    <ul>
+      <li>GB: NESO 1-second data from 2014 to the latest published month. Elexon 15-second data for recent days.</li>
+      <li>Continental Europe: Energy-Charts 1-second data from May 2022.</li>
+      <li>Nordic: Fingrid monthly archives from 2024. They're published several weeks late.</li>
+      <li>US West: the Zenodo 2024 log, a Phoenix log from 2022 to 2023, the 2026 FNET scrape, and the seismometer reference "US West (seismic)" for the days rebuilt with <code>provenance enf-rebuild</code>.</li>
+      <li>US East, Texas and Quebec: only short spans.</li>
+    </ul>
+
+    <h3 id="h-conf">Confidence and abstain, in plain words</h3>
+    <ul>
+      <li><b>Abstain</b> means the tool won't guess. That's a feature: on the test sets it said abstain instead of giving a wrong grid.</li>
+      <li><b>Time match labels</b>, strongest to weakest: <b>strong</b> needs r of at least 0.85, a lead of at least 0.15 over the runner-up, a false-match chance under 0.001, and 5 minutes of audio. <b>Moderate</b> needs r of at least 0.7, a lead of at least 0.08 and a chance under 0.05. <b>Weak</b> needs r of at least 0.5 and a lead of at least 0.05. Anything else is <b>no match</b>.</li>
+      <li>Clips under 2 minutes are always labelled unreliable. Clips under 5 minutes are never labelled strong.</li>
+      <li>A <b>timeline break</b> warning means audio seems to be missing inside the clip. The start of the first clean piece is shown too. Trust the start time to tens of seconds, not to the second.</li>
+      <li>Without a time window, the grid guess comes from statistics of the hum. It's a hint only. It abstains when its top probability is under 69 percent at 50 hertz or 65 percent at 60 hertz.</li>
+    </ul>
+
+    <h3 id="h-limits">What it can and can't tell you</h3>
+    <ul>
+      <li><b>ENF can't tell where inside a grid you were.</b> Everyone on one synchronous grid sees the same frequency. So the hum can name the grid, for example Great Britain or US West, but not the city.</li>
+      <li><b>The grid race needs a rough time.</b> Without one, you only get the statistical hint.</li>
+      <li><b>Hum that isn't from the mains</b>, such as an inverter, a UPS or a synthetic tone, sits almost perfectly still. The tool flags it, but it can still fool the hum detector.</li>
+      <li><b>Sped-up or resampled media</b> breaks the level check, which assumes the recorder's clock is within about 200 parts per million.</li>
+      <li><b>Acoustic Locate needs flyovers and flight history</b> for that place and time. It works best in a search box of tens of kilometres, with two clear flyovers. On the author's test recording it matched his answer to 86 metres, but the second flyover was marked by hand.</li>
+      <li><b>Simulated versus real.</b> Much of the validation uses simulated recordings built from real grid logs and simulated flight scenes. Real tests are fewer: 130 Wuhan recordings, a handful of UK streams and one real flyover recording. Real streams were noisier than the simulation. See the validation notes in the docs folder.</li>
+    </ul>
+
+    <h3 id="h-cli">Command-line equivalents</h3>
+    <pre>provenance gui                          # this window, on http://127.0.0.1:8765
+provenance demo                         # simulate a scene and locate it end to end
+provenance measure clip.wav --events 100-220,1030-1150
+provenance locate --audio clip.wav --adsb flights.csv --bbox 40.6,41.1,-73.9,-73.2 \
+    --start 2026-09-08T00:00Z --end 2026-09-09T00:00Z --dem auto
+provenance audit clip.wav --test-highpass 300
+provenance enf clip.m4a --ref none --start 2025-06-25T17:00Z --end 2025-06-25T21:00Z --out enf_out
+provenance enf clip.mp4 --video on --readout-ms 25 --ref none --start 2024-05-12T17:50Z --end 2024-05-12T18:10Z
+provenance enf-rebuild --grid US-WEST --start 2024-04-17
+provenance enf-collect --minutes 120</pre>
+
+    <h3 id="h-trouble">Troubleshooting</h3>
+    <ul>
+      <li><b>"no free reference covers this time window"</b>: no grid log covers that time. Check the coverage chart, or supply your own reference file.</li>
+      <li><b>"no usable mains hum"</b>: the hum is too faint, or it was filtered out. Use the original file, not a cleaned or heavily compressed copy.</li>
+      <li><b>"clip is too short"</b>: the race needs 3 minutes, and time matching needs 2 minutes to be meaningful and 5 to be strong.</li>
+      <li><b>Nordic is missing for recent dates</b>: Fingrid hasn't published that month yet.</li>
+      <li><b>A video file won't load</b>: install ffmpeg. Only the audio track is read.</li>
+      <li><b>Locate finds nothing</b>: widen the time window or the box, mark the flyover windows by hand, and make sure the flight file covers that area and time.</li>
+      <li><b>The page won't open</b>: start it with <code>provenance gui</code>. It binds to this computer only, at 127.0.0.1 port 8765.</li>
+    </ul>
+    <p class="dim small">Use Provenance only on recordings you own or are allowed to analyse, and to check your own privacy.</p>
+  </div>
+  </section>
+</main>
+
+<footer class="dim small">localhost only · nothing is uploaded anywhere · map tiles © Esri, © OpenStreetMap contributors (loaded from the internet; your audio stays local)</footer>
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+{
+ "MOV1_20190505_110016A.mp4": {
+  "presence": {
+   "verdict": "weak",
+   "reasons": [
+    "rolling shutter path at 50 Hz mains: strong hum line (23.9 dB); only one usable harmonic (cannot cross-check); smooth drift (diff/std=0.05)",
+    "rolling bands not clearly seen (contrast 4.3 dB < 6 dB): read-out time is a guess"
+   ]
+  },
+  "path": "rolling shutter",
+  "readout": 28.92,
+  "contrast": 4.26,
+  "dropped": 0.122,
+  "fps": 29.987349813923174,
+  "valid": 0.843,
+  "matches": {
+   "74852a0e021cL_tensiunator3_20190505_081501.wav": {
+    "r": -0.054,
+    "second": null,
+    "start_s": -2.0,
+    "label": "no match",
+    "rmse": 15.14
+   },
+   "74852a0e021cL_tensiunator3_20190505_100253.wav": {
+    "r": 0.4701,
+    "second": null,
+    "start_s": 26.9,
+    "label": "no match",
+    "rmse": 12.31
+   },
+   "74852a0e021cL_tensiunator3_20190505_110029.wav": {
+    "r": 0.8409,
+    "second": null,
+    "start_s": -2.0,
+    "label": "moderate",
+    "rmse": 7.15
+   },
+   "74852a0e021cL_tensiunator3_20190507_233133.wav": {
+    "r": 0.4363,
+    "second": null,
+    "start_s": 217.4,
+    "label": "no match",
+    "rmse": 14.51
+   },
+   "b827ebd746d7_tensiunator2_20190508_200340.wav": {
+    "r": 0.0344,
+    "second": null,
+    "start_s": 29.8,
+    "label": "no match",
+    "rmse": 16.15
+   },
+   "b827ebd746d7_tensiunator2_20190508_203558.wav": {
+    "r": 0.0581,
+    "second": null,
+    "start_s": 186.9,
+    "label": "no match",
+    "rmse": 16.0
+   },
+   "f4066951fde2L_tensiunator3_20190512_215148.wav": {
+    "r": 0.0218,
+    "second": null,
+    "start_s": -2.0,
+    "label": "no match",
+    "rmse": 34.04
+   },
+   "f4066951fde2L_tensiunator3_20190513_123529.wav": {
+    "r": 0.3011,
+    "second": null,
+    "start_s": 12.4,
+    "label": "no match",
+    "rmse": 14.17
+   },
+   "f4066951fde2L_tensiunator3_20190513_194624.wav": {
+    "r": 0.4333,
+    "second": null,
+    "start_s": 158.1,
+    "label": "no match",
+    "rmse": 12.66
+   }
+  }
+ },
+ "MOV2_20190508_200450A.mp4": {
+  "presence": {
+   "verdict": "weak",
+   "reasons": [
+    "rolling shutter path at 50 Hz mains: strong hum line (18.4 dB); only one usable harmonic (cannot cross-check); smooth drift (diff/std=0.07)",
+    "rolling bands not clearly seen (contrast 2.2 dB < 6 dB): read-out time is a guess"
+   ]
+  },
+  "path": "rolling shutter",
+  "readout": 9.54,
+  "contrast": 2.19,
+  "dropped": 0.368,
+  "fps": 30.026226738878055,
+  "valid": 0.439,
+  "matches": {
+   "74852a0e021cL_tensiunator3_20190505_081501.wav": {
+    "r": 0.3925,
+    "second": null,
+    "start_s": 122.9,
+    "label": "no match",
+    "rmse": 9.26
+   },
+   "74852a0e021cL_tensiunator3_20190505_100253.wav": {
+    "r": 0.4604,
+    "second": null,
+    "start_s": 229.0,
+    "label": "no match",
+    "rmse": 8.87
+   },
+   "74852a0e021cL_tensiunator3_20190505_110029.wav": {
+    "r": 0.0654,
+    "second": null,
+    "start_s": 193.3,
+    "label": "no match",
+    "rmse": 11.89
+   },
+   "74852a0e021cL_tensiunator3_20190507_233133.wav": {
+    "r": 0.3465,
+    "second": null,
+    "start_s": 29.7,
+    "label": "no match",
+    "rmse": 15.44
+   },
+   "b827ebd746d7_tensiunator2_20190508_200340.wav": {
+    "r": 0.9778,
+    "second": null,
+    "start_s": 81.7,
+    "label": "strong",
+    "rmse": 1.87
+   },
+   "b827ebd746d7_tensiunator2_20190508_203558.wav": {
+    "r": 0.5118,
+    "second": null,
+    "start_s": 202.7,
+    "label": "weak",
+    "rmse": 9.73
+   },
+   "f4066951fde2L_tensiunator3_20190512_215148.wav": {
+    "r": 0.2774,
+    "second": null,
+    "start_s": 255.0,
+    "label": "no match",
+    "rmse": 23.49
+   },
+   "f4066951fde2L_tensiunator3_20190513_123529.wav": {
+    "r": 0.3757,
+    "second": null,
+    "start_s": 44.4,
+    "label": "no match",
+    "rmse": 11.73
+   },
+   "f4066951fde2L_tensiunator3_20190513_194624.wav": {
+    "r": 0.4297,
+    "second": null,
+    "start_s": 243.2,
+    "label": "no match",
+    "rmse": 10.69
+   }
+  }
+ }
+}
