@@ -542,7 +542,7 @@ $$
 - **Significance.** Effective sample size uses the integrated autocorrelation length $\tau$ (summed until the ACF drops below 0.05):
 
 $$
-n_{\text{eff}} = \frac{n}{\tau},\qquad z = \operatorname{atanh}(r)\,\sqrt{n_{\text{eff}} - 3},\qquad p_{\text{false}} = p_1(z)\cdot n_{\text{trials}}
+n_{\text{eff}} = \frac{n}{\tau},\qquad z = \mathrm{atanh}(r)\,\sqrt{n_{\text{eff}} - 3},\qquad p_{\text{false}} = p_1(z)\cdot n_{\text{trials}}
 $$
 
   where $n_{\text{trials}}$ is the number of lags searched.
@@ -571,7 +571,7 @@ Telling grids apart from ENF builds on [18, 24]. Reference logs: [65, 66, 67, 68
 Each grid with a log for the window is matched with the same gate and smoothing. With the best two grids at $r_1 \ge r_2$, the margin is in Fisher-z units (r clipped at ±0.995):
 
 $$
-\Delta z = \operatorname{atanh}(r_1) - \operatorname{atanh}(r_2)
+\Delta z = \mathrm{atanh}(r_1) - \mathrm{atanh}(r_2)
 $$
 
 Fisher-z is used because 0.99 against 0.70 is much stronger evidence than 0.50 against 0.21.
